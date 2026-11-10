@@ -5,9 +5,11 @@
  */
 
 const STORAGE_KEY = 'lep_portfolio_data';
-const PIN_KEY = 'lep_admin_pin';
+const PIN_HASH_KEY = 'lep_admin_pin_hash';
 const THEME_KEY = 'lep_theme';
-const DEFAULT_PIN = '020497'; // 2 April 1997
+
+// SHA-256 cryptographic hash of default PIN '020497'
+const DEFAULT_PIN_HASH = '990a6bc2cbb747397610b88bf2493e6704ce0d3839f3f3ea8b2c39b0d2321e37';
 
 const DEFAULT_PORTFOLIO_DATA = {
   profile: {
@@ -70,7 +72,7 @@ const DEFAULT_PORTFOLIO_DATA = {
       period: "April 2022 – September 2023",
       logo: "https://www.google.com/s2/favicons?domain=fifgroup.co.id&sz=128",
       companyShort: "FIF",
-      brandColor: "#1d4ed8",
+      brandColor: "#0369a1",
       responsibilities: [
         "Developed test scripts using Katalon Studio for API automation, Web UI Automation, and Mobile Automation.",
         "Developed test scripts using Silk Test Performance for performance testing.",
@@ -90,7 +92,7 @@ const DEFAULT_PORTFOLIO_DATA = {
       period: "Agustus 2019 – April 2022",
       logo: "https://www.google.com/s2/favicons?domain=fifgroup.co.id&sz=128",
       companyShort: "FIF",
-      brandColor: "#1d4ed8",
+      brandColor: "#0369a1",
       responsibilities: [
         "Source Control when the source will enter the test/live machine.",
         "Support troubleshoot server environment test.",
@@ -103,8 +105,8 @@ const DEFAULT_PORTFOLIO_DATA = {
       role: "Implementor",
       period: "Januari 2019 – Agustus 2019",
       logo: "https://www.google.com/s2/favicons?domain=bosnetdis.com&sz=128",
-      companyShort: "BOSNET",
-      brandColor: "#dc2626",
+      companyShort: "BOS",
+      brandColor: "#d97706",
       responsibilities: [
         "Implement Bosnet applications to clients.",
         "User training on the Bosnet application.",
@@ -120,9 +122,9 @@ const DEFAULT_PORTFOLIO_DATA = {
       company: "PT. Wisesa Consulting Indonesia",
       role: "Software Implementation Consultant",
       period: "September 2016 – Desember 2018",
-      logo: "https://www.wisesa-consulting.com/assets/img/logo-wisesa.svg",
-      companyShort: "WISECON",
-      brandColor: "#0d9488",
+      logo: "https://www.google.com/s2/favicons?domain=wisecon.co.id&sz=128",
+      companyShort: "WCI",
+      brandColor: "#4f46e5",
       responsibilities: [
         "Identify, analyze, and develop business requirements for applications.",
         "Testing application, find bugs, teaching users, and professionally manage project deadline.",
@@ -225,38 +227,38 @@ const DEFAULT_PORTFOLIO_DATA = {
     {
       id: "cert-1",
       name: "Bootcamp Jayjay QA Engineer",
-      link: "https://drive.google.com/file/d/149wTMGcNp6A0f52QRigRy1Kn2hVwPvEi/view?usp=sharing",
-      issuer: "JAYJAY"
+      issuer: "JAYJAY",
+      link: "https://drive.google.com/file/d/149wTMGcNp6A0f52QRigRy1Kn2hVwPvEi/view?usp=sharing"
     },
     {
       id: "cert-2",
       name: "Katalon Practitioner Certification",
-      link: "https://academy.katalon.com/mcertificate/6881d0a3c6fc3",
-      issuer: "Katalon Academy"
+      issuer: "Katalon",
+      link: "https://academy.katalon.com/mcertificate/6881d0a3c6fc3"
     },
     {
       id: "cert-3",
       name: "Katalon Studio Beginners",
-      link: "https://www.udemy.com/certificate/UC-3cf92fc3-3b79-42b8-af9c-1d89107ceec2/",
-      issuer: "Udemy"
+      issuer: "Udemy",
+      link: "https://www.udemy.com/certificate/UC-3cf92fc3-3b79-42b8-af9c-1d89107ceec2/"
     },
     {
       id: "cert-4",
       name: "Workshop Otomatisasi API Berbasis Pytest",
-      link: "https://drive.google.com/file/d/1kLjTAdL6FNYHQpZIi1Fptr8Q_lEbFyxw/view",
-      issuer: "Workshop / Training"
+      issuer: "Workshop",
+      link: "https://drive.google.com/file/d/1kLjTAdL6FNYHQpZIi1Fptr8Q_lEbFyxw/view"
     },
     {
       id: "cert-5",
       name: "Quality Assurance Mastery",
-      link: "https://www.udemy.com/certificate/UC-80181f26-350d-4276-982a-58a636a9fc31/",
-      issuer: "Udemy"
+      issuer: "Udemy",
+      link: "https://www.udemy.com/certificate/UC-80181f26-350d-4276-982a-58a636a9fc31/"
     },
     {
       id: "cert-6",
       name: "Fundamental SQL",
-      link: "https://academy.dqlab.id/certificate/pdf/DQLABSQLT1UTVTCV/NONTRACK",
-      issuer: "DQLab"
+      issuer: "DQLab",
+      link: "https://academy.dqlab.id/certificate/pdf/DQLABSQLT1UTVTCV/NONTRACK"
     }
   ]
 };

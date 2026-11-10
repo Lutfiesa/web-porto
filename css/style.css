@@ -1,5 +1,6 @@
 /* ==============================================================
-   CUSTOM STYLES & ANIMATIONS — Lutfi Esa Prasetyo Portfolio
+   CYAN & ELECTRIC BLUE THEME STYLES — Lutfi Esa Prasetyo Portfolio
+   Combines JLD2ND Layout Structure with Signature Blue / Cyan Palette
    ============================================================== */
 
 /* Base font family */
@@ -7,7 +8,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", sans-serif;
 }
 
-/* Custom Scrollbar - Light & Dark */
+/* Custom Scrollbar - Light & Cyan Dark */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -17,7 +18,7 @@ body {
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #070c14;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -26,7 +27,8 @@ body {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #132035;
+  border: 1px solid rgba(14, 165, 233, 0.2);
   border-radius: 4px;
 }
 
@@ -35,18 +37,18 @@ body {
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #0ea5e9;
 }
 
 /* Ambient Pulse Glow Animation */
 @keyframes pulse-slow {
   0%, 100% {
-    opacity: 0.15;
+    opacity: 0.25;
     transform: scale(1);
   }
   50% {
-    opacity: 0.3;
-    transform: scale(1.05);
+    opacity: 0.45;
+    transform: scale(1.08);
   }
 }
 
@@ -54,3 +56,35 @@ body {
   animation: pulse-slow 8s ease-in-out infinite;
 }
 
+/* Character Card Electric Blue Glow */
+.hero-character-card {
+  position: relative;
+  box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.32), 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-character-card:hover {
+  box-shadow: 0 0 65px -5px rgba(14, 165, 233, 0.48), 0 25px 45px -15px rgba(0, 0, 0, 0.9);
+  transform: translateY(-4px);
+}
+
+/* Floating Island Navbar Backdrop */
+.floating-navbar {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Blue & Cyan Glow Borders & Accents */
+.theme-card, .mint-card {
+  transition: all 0.25s ease-in-out;
+}
+
+.theme-card:hover, .mint-card:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+}
+
+/* Pixel art rendering hint */
+.pixelated {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
