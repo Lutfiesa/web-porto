@@ -263,7 +263,7 @@ function getCompanyLogoHtml(exp) {
 
   if (logoUrl && logoUrl !== '#') {
     return `
-      <div class="w-12 h-12 rounded-xl bg-white dark:bg-[#070c14] border border-slate-200 dark:border-cyan-500/20 flex items-center justify-center p-2 shrink-0 overflow-hidden shadow-sm relative group/logo">
+      <div class="w-12 h-12 rounded-xl bg-white dark:bg-[#070c14] border border-slate-300/80 dark:border-cyan-500/20 flex items-center justify-center p-2 shrink-0 overflow-hidden shadow-sm relative group/logo">
         <img src="${logoUrl}" 
              alt="${escapeHtml(exp.company)} Logo" 
              loading="lazy" 
@@ -277,7 +277,7 @@ function getCompanyLogoHtml(exp) {
   }
 
   return `
-    <div class="w-12 h-12 rounded-xl border border-slate-200 dark:border-cyan-500/20 flex items-center justify-center p-2 shrink-0 overflow-hidden shadow-sm text-white font-extrabold text-xs tracking-wider" style="background-color: ${brandColor}">
+    <div class="w-12 h-12 rounded-xl border border-slate-300/80 dark:border-cyan-500/20 flex items-center justify-center p-2 shrink-0 overflow-hidden shadow-sm text-white font-extrabold text-xs tracking-wider" style="background-color: ${brandColor}">
       ${shortName}
     </div>
   `;
@@ -296,32 +296,32 @@ function renderExperience() {
     item.className = 'relative pl-10 sm:pl-16 group';
 
     const bulletsHtml = exp.responsibilities.map(resp => `
-      <li class="flex items-start gap-2.5 text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-        <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400 mt-2 shrink-0"></span>
+      <li class="flex items-start gap-2.5 text-slate-800 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-600 dark:bg-cyan-400 mt-2 shrink-0"></span>
         <span>${escapeHtml(resp)}</span>
       </li>
     `).join('');
 
     item.innerHTML = `
       <!-- Milestone Marker Dot -->
-      <div class="absolute left-4 sm:left-8 -translate-x-1/2 top-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#070c14] border-2 border-cyan-500 group-hover:scale-125 group-hover:bg-cyan-500 transition-all shadow-md shadow-cyan-500/50"></div>
+      <div class="absolute left-4 sm:left-8 -translate-x-1/2 top-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#070c14] border-2 border-cyan-600 dark:border-cyan-500 group-hover:scale-125 group-hover:bg-cyan-500 transition-all shadow-md shadow-cyan-500/40"></div>
 
       <!-- Card Content -->
-      <div class="theme-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-200 dark:border-cyan-500/20 hover:border-cyan-500/50 transition-all shadow-sm">
+      <div class="theme-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-300/80 dark:border-cyan-500/20 hover:border-cyan-500/50 transition-all shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div class="flex items-center gap-3.5">
             ${getCompanyLogoHtml(exp)}
             <div>
               <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight leading-snug">${escapeHtml(exp.company)}</h3>
-              <div class="text-xs sm:text-sm font-semibold text-cyan-600 dark:text-cyan-400">${escapeHtml(exp.role)}</div>
+              <div class="text-xs sm:text-sm font-bold text-cyan-700 dark:text-cyan-400">${escapeHtml(exp.role)}</div>
             </div>
           </div>
-          <span class="inline-flex self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-[#101b30] text-slate-700 dark:text-cyan-300 border border-slate-200 dark:border-cyan-500/20 shrink-0">
+          <span class="inline-flex self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-[#101b30] text-slate-800 dark:text-cyan-300 border border-slate-300 dark:border-cyan-500/20 shrink-0">
             ${escapeHtml(exp.period)}
           </span>
         </div>
 
-        <ul class="space-y-2 mt-4 pt-3 border-t border-slate-100 dark:border-cyan-500/10">
+        <ul class="space-y-2 mt-4 pt-3 border-t border-slate-200 dark:border-cyan-500/10">
           ${bulletsHtml}
         </ul>
       </div>
@@ -340,10 +340,10 @@ function renderSkills() {
 
   appData.skills.forEach(cat => {
     const card = document.createElement('div');
-    card.className = 'theme-card p-5 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-200 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between shadow-sm';
+    card.className = 'theme-card p-5 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-300/80 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between shadow-sm';
 
     const tagsHtml = cat.items.map(skill => `
-      <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-[#101c33] text-slate-800 dark:text-cyan-300 border border-slate-200 dark:border-cyan-500/20">
+      <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#101c33] text-slate-800 dark:text-cyan-300 border border-slate-300/80 dark:border-cyan-500/20">
         ${escapeHtml(skill)}
       </span>
     `).join('');
@@ -351,8 +351,8 @@ function renderSkills() {
     card.innerHTML = `
       <div>
         <div class="flex items-center gap-2 mb-3.5">
-          <span class="w-2 h-2 rounded-full bg-cyan-500 shadow-sm shadow-cyan-500/50"></span>
-          <h3 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">${escapeHtml(cat.category)}</h3>
+          <span class="w-2 h-2 rounded-full bg-cyan-600 dark:bg-cyan-500 shadow-sm shadow-cyan-500/50"></span>
+          <h3 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider">${escapeHtml(cat.category)}</h3>
         </div>
         <div class="flex flex-wrap gap-1.5">
           ${tagsHtml}
@@ -373,23 +373,23 @@ function renderEducation() {
 
   appData.education.forEach(edu => {
     const card = document.createElement('div');
-    card.className = 'theme-card p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-200 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between shadow-sm';
+    card.className = 'theme-card p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-300/80 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between shadow-sm';
     
     card.innerHTML = `
       <div>
-        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-4">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 flex items-center justify-center mb-4">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M12 14l9-5-9-5-9 5 9 5z"/>
             <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
           </svg>
         </div>
-        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-[#101c33] text-slate-700 dark:text-cyan-300 border border-slate-200 dark:border-cyan-500/20 mb-2 inline-block">
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 dark:bg-[#101c33] text-slate-800 dark:text-cyan-300 border border-slate-300 dark:border-cyan-500/20 mb-2 inline-block">
           ${escapeHtml(edu.period)}
         </span>
         <h3 class="text-base font-bold text-slate-900 dark:text-white mt-1">${escapeHtml(edu.level)}</h3>
-        <p class="text-xs sm:text-sm text-cyan-600 dark:text-cyan-400 font-medium mt-1">${escapeHtml(edu.institution)}</p>
+        <p class="text-xs sm:text-sm text-cyan-700 dark:text-cyan-400 font-bold mt-1">${escapeHtml(edu.institution)}</p>
       </div>
-      ${edu.notes && edu.notes !== '-' ? `<div class="mt-4 pt-3 border-t border-slate-100 dark:border-cyan-500/10 text-xs text-slate-500 dark:text-slate-400">${escapeHtml(edu.notes)}</div>` : ''}
+      ${edu.notes && edu.notes !== '-' ? `<div class="mt-4 pt-3 border-t border-slate-200 dark:border-cyan-500/10 text-xs text-slate-600 dark:text-slate-400">${escapeHtml(edu.notes)}</div>` : ''}
     `;
     container.appendChild(card);
   });
@@ -405,27 +405,27 @@ function renderCertificates() {
 
   appData.certificates.forEach(cert => {
     const card = document.createElement('div');
-    card.className = 'theme-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-200 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between group shadow-sm';
+    card.className = 'theme-card p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#0c1424]/80 border border-slate-300/80 dark:border-cyan-500/20 hover:border-cyan-500/45 transition-all flex flex-col justify-between group shadow-sm';
 
     const safeCertLink = sanitizeUrl(cert.link);
 
     card.innerHTML = `
       <div>
         <div class="flex items-center justify-between mb-3">
-          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-cyan-50 dark:bg-[#0f213d] text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-cyan-50 dark:bg-[#0f213d] text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/30">
             ${escapeHtml(cert.issuer || 'Sertifikasi')}
           </span>
-          <svg class="w-5 h-5 text-slate-400 dark:text-cyan-500/60 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-slate-400 dark:text-cyan-500/60 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
           </svg>
         </div>
-        <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
+        <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors">
           ${escapeHtml(cert.name)}
         </h3>
       </div>
 
-      <div class="mt-5 pt-4 border-t border-slate-100 dark:border-cyan-500/10">
-        <a href="${safeCertLink}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 group-hover:underline">
+      <div class="mt-5 pt-4 border-t border-slate-200 dark:border-cyan-500/10">
+        <a href="${safeCertLink}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 group-hover:underline">
           <span>Lihat Sertifikat</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>

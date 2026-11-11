@@ -59,13 +59,21 @@ body {
 /* Character Card Electric Blue Glow */
 .hero-character-card {
   position: relative;
-  box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.32), 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(14, 165, 233, 0.22), 0 20px 25px -5px rgba(15, 23, 42, 0.12);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-character-card:hover {
-  box-shadow: 0 0 65px -5px rgba(14, 165, 233, 0.48), 0 25px 45px -15px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 15px 35px -5px rgba(14, 165, 233, 0.32), 0 25px 30px -5px rgba(15, 23, 42, 0.18);
   transform: translateY(-4px);
+}
+
+.dark .hero-character-card {
+  box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.32), 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+}
+
+.dark .hero-character-card:hover {
+  box-shadow: 0 0 65px -5px rgba(14, 165, 233, 0.48), 0 25px 45px -15px rgba(0, 0, 0, 0.9);
 }
 
 /* Floating Island Navbar Backdrop */
@@ -74,13 +82,24 @@ body {
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Blue & Cyan Glow Borders & Accents */
+/* Blue & Cyan Glow Borders & Accents - Elevated for Light Mode & Cyber Dark */
 .theme-card, .mint-card {
   transition: all 0.25s ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.07), 0 1px 2px -1px rgba(15, 23, 42, 0.07);
 }
 
 .theme-card:hover, .mint-card:hover {
-  border-color: rgba(14, 165, 233, 0.5);
+  border-color: rgba(2, 132, 199, 0.6) !important;
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.14), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+}
+
+.dark .theme-card, .dark .mint-card {
+  box-shadow: none;
+}
+
+.dark .theme-card:hover, .dark .mint-card:hover {
+  border-color: rgba(14, 165, 233, 0.5) !important;
+  box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.2);
 }
 
 /* Pixel art rendering hint */
