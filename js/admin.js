@@ -118,7 +118,7 @@ function renderCmsExperienceList() {
     item.innerHTML = `
       <div>
         <div class="text-xs text-slate-500 dark:text-cyan-400 font-semibold">${escapeAdminHtml(exp.period)}</div>
-        <div class="text-sm font-bold text-slate-900 dark:text-white">${escapeAdminHtml(exp.company)} — <span class="text-cyan-600 dark:text-cyan-400">${escapeAdminHtml(exp.role)}</span></div>
+        <div class="text-sm font-bold text-slate-900 dark:text-white">${escapeAdminHtml(exp.company)} <span class="text-slate-400 font-normal">|</span> <span class="text-cyan-600 dark:text-cyan-400">${escapeAdminHtml(exp.role)}</span></div>
         <div class="text-[11px] text-slate-500 mt-0.5">${exp.responsibilities.length} poin tanggung jawab</div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
@@ -173,7 +173,7 @@ function renderCmsEducationList() {
     item.innerHTML = `
       <div>
         <div class="text-xs text-slate-500 dark:text-cyan-400 font-semibold">${escapeAdminHtml(edu.period)}</div>
-        <div class="text-sm font-bold text-slate-900 dark:text-white">${escapeAdminHtml(edu.level)} — <span class="text-cyan-600 dark:text-cyan-400">${escapeAdminHtml(edu.institution)}</span></div>
+        <div class="text-sm font-bold text-slate-900 dark:text-white">${escapeAdminHtml(edu.level)} <span class="text-slate-400 font-normal">|</span> <span class="text-cyan-600 dark:text-cyan-400">${escapeAdminHtml(edu.institution)}</span></div>
         <div class="text-[11px] text-slate-500 mt-0.5">${escapeAdminHtml(edu.notes || '-')}</div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
@@ -480,6 +480,25 @@ function initAdmin() {
   if (closeLoginBtn) closeLoginBtn.addEventListener('click', () => loginModal.classList.add('hidden'));
   if (cmsCloseBtn) cmsCloseBtn.addEventListener('click', closeCms);
   if (barOpenCmsBtn) barOpenCmsBtn.addEventListener('click', openCms);
+
+  // Keyboard Accessibility: Close active modal dialog on Escape key (R-32 & antislop-human)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const itemEditorModal = document.getElementById('item-editor-modal');
+      if (itemEditorModal && !itemEditorModal.classList.contains('hidden')) {
+        closeItemEditor();
+        return;
+      }
+      if (cmsModal && !cmsModal.classList.contains('hidden')) {
+        closeCms();
+        return;
+      }
+      if (loginModal && !loginModal.classList.contains('hidden')) {
+        loginModal.classList.add('hidden');
+        return;
+      }
+    }
+  });
 
   // Login Form Submission with Cryptographic Hash & Rate Limiting
   const loginForm = document.getElementById('admin-login-form');

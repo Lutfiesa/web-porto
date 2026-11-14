@@ -148,7 +148,7 @@ function renderProfile() {
   if (heroName) heroName.textContent = p.name;
   
   const heroRoleBadge = document.getElementById('hero-role-badge');
-  if (heroRoleBadge) heroRoleBadge.textContent = p.role;
+  if (heroRoleBadge) heroRoleBadge.textContent = p.statusBadge || 'Tersedia untuk Peran Baru • DKI Jakarta';
 
   const heroTagline = document.getElementById('hero-tagline');
   if (heroTagline) heroTagline.textContent = p.tagline;
@@ -267,6 +267,8 @@ function getCompanyLogoHtml(exp) {
         <img src="${logoUrl}" 
              alt="${escapeHtml(exp.company)} Logo" 
              loading="lazy" 
+             width="48"
+             height="48"
              class="w-full h-full object-contain transition-transform group-hover/logo:scale-110" 
              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
         <div class="hidden w-full h-full flex items-center justify-center rounded-lg text-white font-extrabold text-xs tracking-wider" style="background-color: ${brandColor}">

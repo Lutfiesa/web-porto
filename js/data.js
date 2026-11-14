@@ -15,6 +15,7 @@ const DEFAULT_PORTFOLIO_DATA = {
   profile: {
     name: "Lutfi Esa Prasetyo",
     role: "QA Automation Engineer / System Analyst",
+    statusBadge: "Tersedia untuk Peran Baru • DKI Jakarta",
     birthInfo: "Banyumas, 2 April 1997",
     email: "lutfiesa@gmail.com",
     phone: "081212882818",

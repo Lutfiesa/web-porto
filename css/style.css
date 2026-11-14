@@ -1,14 +1,31 @@
-/* ==============================================================
-   CYAN & ELECTRIC BLUE THEME STYLES — Lutfi Esa Prasetyo Portfolio
-   Combines JLD2ND Layout Structure with Signature Blue / Cyan Palette
-   ============================================================== */
+/* Cyan and Electric Blue Theme Styles | Lutfi Esa Prasetyo Portfolio */
 
 /* Base font family */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", sans-serif;
 }
 
-/* Custom Scrollbar - Light & Cyan Dark */
+/* Accessible Keyboard Focus Indicator (WCAG AA & R-32 Compliant) */
+:focus-visible {
+  outline: 2px solid #0284c7 !important;
+  outline-offset: 2px !important;
+}
+
+.dark :focus-visible {
+  outline: 2px solid #0ea5e9 !important;
+  outline-offset: 2px !important;
+}
+
+/* Interaction affordances (R-39) */
+button, a, summary, [role="button"] {
+  cursor: pointer;
+}
+
+button:disabled, [aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -82,7 +99,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Blue & Cyan Glow Borders & Accents - Elevated for Light Mode & Cyber Dark */
+/* Blue & Cyan Glow Borders & Accents */
 .theme-card, .mint-card {
   transition: all 0.25s ease-in-out;
   box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.07), 0 1px 2px -1px rgba(15, 23, 42, 0.07);
@@ -106,4 +123,21 @@ body {
 .pixelated {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Prefers Reduced Motion (R-39 & antislop-human Compliant) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-glow,
+  .animate-pulse,
+  .animate-ping {
+    animation: none !important;
+  }
 }
